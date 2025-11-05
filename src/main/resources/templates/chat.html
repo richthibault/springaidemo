@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring AI Chat Demo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Spring AI Chat Demo</h1>
+            <p>Powered by Azure OpenAI GPT-4 & Azure AI Search</p>
+        </header>
+
+        <div class="chat-options">
+            <label>
+                <input type="radio" name="chatMode" value="standard" checked>
+                Standard Chat
+            </label>
+            <label>
+                <input type="radio" name="chatMode" value="rag">
+                Chat with RAG (Retrieval Augmented Generation)
+            </label>
+        </div>
+
+        <div id="chat-container">
+            <div id="messages"></div>
+        </div>
+
+        <div class="input-container">
+            <textarea id="messageInput" placeholder="Type your message here..." rows="3"></textarea>
+            <button id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <script th:src="@{/js/chat.js}"></script>
+</body>
+</html>
