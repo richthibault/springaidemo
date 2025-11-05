@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring AI Demo - Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Spring AI Demo</h1>
+            <p>A Spring Boot 3.5.7 Application with Azure OpenAI & Azure AI Search</p>
+        </header>
+
+        <div class="content">
+            <div class="feature-card">
+                <h2>Features</h2>
+                <ul>
+                    <li>✅ Spring Boot 3.5.7</li>
+                    <li>✅ Spring AI Integration</li>
+                    <li>✅ Azure OpenAI ChatGPT 4.1</li>
+                    <li>✅ Azure AI Search for RAG</li>
+                    <li>✅ Thymeleaf Templates</li>
+                    <li>✅ Ajax-based Chat Interface</li>
+                </ul>
+            </div>
+
+            <div class="action-card">
+                <h2>Get Started</h2>
+                <p>Experience AI-powered chat with retrieval augmented generation.</p>
+                <a th:href="@{/chat}" class="button">Go to Chat</a>
+            </div>
+
+            <div class="info-card">
+                <h2>Configuration</h2>
+                <p>Make sure to configure your Azure credentials in <code>application.properties</code>:</p>
+                <ul>
+                    <li>AZURE_OPENAI_API_KEY</li>
+                    <li>AZURE_OPENAI_ENDPOINT</li>
+                    <li>AZURE_AI_SEARCH_API_KEY</li>
+                    <li>AZURE_AI_SEARCH_ENDPOINT</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
