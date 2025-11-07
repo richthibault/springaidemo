@@ -1,4 +1,4 @@
-package com.example.springaidemo;
+package com.exquisiteloop.springaidemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

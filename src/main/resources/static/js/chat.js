@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add welcome message
-    addBotMessage("Hello! I'm an AI assistant powered by Azure OpenAI. How can I help you today?");
+    addBotMessage("Hello! I'm an AI assistant powered by Spring AI. How can I help you today?");
 });
 
 // Send message function

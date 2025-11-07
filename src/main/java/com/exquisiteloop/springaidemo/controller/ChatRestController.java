@@ -1,14 +1,18 @@
-package com.example.springaidemo.controller;
-
-import com.example.springaidemo.service.ChatService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+package com.exquisiteloop.springaidemo.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.exquisiteloop.springaidemo.service.ChatService;
 
 @RestController
 @RequestMapping("/api/chat")
@@ -18,7 +22,6 @@ public class ChatRestController {
 
     private final ChatService chatService;
 
-    @Autowired
     public ChatRestController(ChatService chatService) {
         this.chatService = chatService;
     }
@@ -49,25 +52,25 @@ public class ChatRestController {
     /**
      * Handle chat requests with RAG (Retrieval Augmented Generation)
      */
-    @PostMapping("/rag")
-    public ResponseEntity<Map<String, String>> chatWithRAG(@RequestBody Map<String, String> request) {
-        logger.debug("Received RAG chat request: {}", request);
+    // @PostMapping("/rag")
+    // public ResponseEntity<Map<String, String>> chatWithRag(@RequestBody Map<String, String> request) {
+    //     logger.debug("Received RAG chat request: {}", request);
         
-        String message = request.get("message");
-        if (message == null || message.trim().isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body(createResponse("Please provide a message"));
-        }
+    //     String message = request.get("message");
+    //     if (message == null || message.trim().isEmpty()) {
+    //         return ResponseEntity.badRequest()
+    //                 .body(createResponse("Please provide a message"));
+    //     }
         
-        try {
-            String response = chatService.chatWithRAG(message);
-            return ResponseEntity.ok(createResponse(response));
-        } catch (Exception e) {
-            logger.error("Error processing RAG chat request", e);
-            return ResponseEntity.internalServerError()
-                    .body(createResponse("An error occurred: " + e.getMessage()));
-        }
-    }
+    //     try {
+    //         String response = chatService.chatWithRag(message);
+    //         return ResponseEntity.ok(createResponse(response));
+    //     } catch (Exception e) {
+    //         logger.error("Error processing RAG chat request", e);
+    //         return ResponseEntity.internalServerError()
+    //                 .body(createResponse("An error occurred: " + e.getMessage()));
+    //     }
+    // }
 
     /**
      * Health check endpoint

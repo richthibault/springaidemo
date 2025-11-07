@@ -1,4 +1,4 @@
-package com.example.springaidemo.controller;
+package com.exquisiteloop.springaidemo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
