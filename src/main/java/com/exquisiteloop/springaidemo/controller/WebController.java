@@ -1,24 +1,19 @@
 package com.exquisiteloop.springaidemo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.exquisiteloop.springaidemo.model.AiPlatform;
+import com.exquisiteloop.springaidemo.model.Company;
 
 @Controller
 public class WebController {
 
-    /**
-     * Serve the main chat page
-     */
     @GetMapping("/")
-    public String index() {
-        return "index";
-    }
-
-    /**
-     * Serve the chat page
-     */
-    @GetMapping("/chat")
-    public String chat() {
+    public String chat(ModelMap model) {
+		model.addAttribute("aiPlatforms", AiPlatform.values());
+		model.addAttribute("companies", Company.values());
         return "chat";
     }
 }

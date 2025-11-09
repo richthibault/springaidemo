@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+	const messageInput = document.getElementById('messageInput');
+	messageInput.focus();
+
     // Add welcome message
     addBotMessage("Hello! I'm an AI assistant powered by Spring AI. How can I help you today?");
 });
@@ -29,8 +32,11 @@ async function sendMessage() {
     }
 
     // Get selected chat mode
-    const chatMode = document.querySelector('input[name="chatMode"]:checked').value;
-    const endpoint = chatMode === 'rag' ? '/api/chat/rag' : '/api/chat';
+    //const chatMode = document.querySelector('input[name="chatMode"]:checked').value;
+    //const endpoint = chatMode === 'rag' ? '/api/chat/rag' : '/api/chat';
+	const endpoint = '/api/chat';
+	const aiPlatform = document.querySelector('input[name="aiPlatform"]:checked').value;
+	const companyId = document.getElementById('companySelect').value;
 
     // Add user message to chat
     addUserMessage(message);
@@ -51,7 +57,7 @@ async function sendMessage() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ message: message })
+            body: JSON.stringify({ message: message, aiPlatform: aiPlatform, companyId: companyId })
         });
 
         if (!response.ok) {
@@ -91,7 +97,7 @@ function addBotMessage(message) {
     const messagesContainer = document.getElementById('messages');
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message bot-message';
-    messageDiv.textContent = message;
+    messageDiv.innerHTML = message;
     messagesContainer.appendChild(messageDiv);
     scrollToBottom();
 }

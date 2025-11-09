@@ -10,18 +10,32 @@
     <div class="container">
         <header>
             <h1>🤖 Spring AI Chat Demo</h1>
-            <p>Powered by Azure OpenAI GPT-4 & Azure AI Search</p>
+            <!--/* <p>Powered by Azure OpenAI GPT-4 & Azure AI Search</p> */-->
         </header>
 
         <div class="chat-options">
-            <label>
+			<div th:each="platform, stat : ${aiPlatforms}">
+				<label>
+					<input type="radio" name="aiPlatform" th:value="${platform}" 
+						th:id="${'platform-' + platform}" th:checked="${stat.first}">
+					<span th:text="${platform.displayName ?: platform}"></span>
+				</label>
+			</div>
+			<div class="chat-options-right">
+				<label for="companySelect">Select Company for RAG:</label>
+				<select id="companySelect" name="company">
+					<option value=""></option>
+					<option th:each="company : ${companies}" th:value="${company.id}" th:text="${company.name}"></option>
+				</select>
+			</div>
+            <!--/* <label>
                 <input type="radio" name="chatMode" value="standard" checked>
                 Standard Chat
             </label>
             <label>
                 <input type="radio" name="chatMode" value="rag">
                 Chat with RAG (Retrieval Augmented Generation)
-            </label>
+            </label> */-->
         </div>
 
         <div id="chat-container">
@@ -33,7 +47,20 @@
             <button id="sendButton" onclick="sendMessage()">Send</button>
         </div>
 
-        <div id="status" class="status"></div>
+		<div id="status" class="status"></div>
+
+		<div class="footer">
+			<div>
+				<strong>POWERED BY</strong>
+			</div>
+			<div>
+				<a href="https://www.exquisiteloop.com" target="_blank">
+					<img src="/img/exqloop.png" width="150" height="99" alt="Exquisite Loop">
+				</a>
+			</div>
+			<div style="font-size:8pt">Web Design, Development, and Hosting</div>
+		</div>
+
     </div>
 
     <script th:src="@{/js/chat.js}"></script>
