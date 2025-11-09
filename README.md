@@ -51,4 +51,4 @@ The application will start on `http://localhost:8080`
 
 ## License
 
-This project is licensed under the terms included in the repository.
+This project is licensed under the terms of the MIT license (see LICENSE.md).
